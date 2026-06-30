@@ -28,7 +28,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 
-const items = [
+type NavItem = { title: string; url: string; icon: typeof LayoutDashboard; exact?: boolean };
+const items: NavItem[] = [
   { title: "Dashboard", url: "/", icon: LayoutDashboard, exact: true },
   { title: "AI Chat Assistant", url: "/chat", icon: MessageSquare },
   { title: "Smart Email Generator", url: "/email", icon: Mail },
@@ -36,7 +37,7 @@ const items = [
   { title: "AI Task Planner", url: "/tasks", icon: ListChecks },
   { title: "AI Research Assistant", url: "/research", icon: Search },
   { title: "Settings", url: "/settings", icon: SettingsIcon },
-] as const;
+];
 
 export function AppSidebar() {
   const { state } = useSidebar();
